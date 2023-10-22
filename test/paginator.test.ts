@@ -66,6 +66,11 @@ describe('GROQ pagination', () => {
         cursor: expect.stringContaining('|')
       }))
     })
+
+    test('should return the correct start and end cursors', () => {
+      expect(page.pageInfo.startCursor).toBe(page.edges[0].cursor)
+      expect(page.pageInfo.endCursor).toBe(page.edges[page.edges.length - 1].cursor)
+    })
   })
 
   describe('a page of results with a cursor', async () => {
@@ -116,6 +121,11 @@ describe('GROQ pagination', () => {
         node: expect.any(Object),
         cursor: expect.stringContaining('|')
       }))
+    })
+
+    test('should return the correct start and end cursors', () => {
+      expect(page.pageInfo.startCursor).toBe(page.edges[0].cursor)
+      expect(page.pageInfo.endCursor).toBe(page.edges[page.edges.length - 1].cursor)
     })
   })
 })
