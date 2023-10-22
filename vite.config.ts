@@ -1,11 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference types="vitest" />
 import { resolve } from 'node:path'
-import dts from 'vite-plugin-dts'
 
 // Configure Vitest (https://vitest.dev/config/)
-
 import { defineConfig } from 'vite'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig({
   plugins: [dts({ rollupTypes: true })],
